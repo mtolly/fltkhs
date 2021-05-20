@@ -122,8 +122,8 @@ myPreConf args flags = do
     else return ()
    putStrLn "Running autoconf ..."
    case buildOS of
-     Windows -> rawSystemExit normal "sh" ["autoconf"]
-     _ -> rawSystemExit normal "autoconf" []
+     Windows -> rawSystemExit normal "sh" ["autoreconf", "--install"]
+     _ -> rawSystemExit normal "autoreconf" ["--install"]
    fltkPathAdded <-
      if (bundledBuild flags)
      then do
